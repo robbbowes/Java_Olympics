@@ -14,8 +14,9 @@ public class Team extends Competitor {
                 int silverMedalCount,
                 int bronzeMedalCount,
                 Enum<Country> country,
-                ArrayList<Athlete> team) {
-        super(goldMedalCount, silverMedalCount, bronzeMedalCount, country);
+                ArrayList<Athlete> team,
+                Enum<Discipline> discipline) {
+        super(goldMedalCount, silverMedalCount, bronzeMedalCount, country, discipline);
 
         this.team = team;
     }
@@ -24,6 +25,14 @@ public class Team extends Competitor {
         return team;
     }
 
-    public 
+    public void addToTeam(Athlete athlete) {
+        if (athlete.getDiscipline() == this.discipline){
+            team.add(athlete);
+        }
+    }
+
+    public int teamSize() {
+        return team.size();
+    }
 
 }

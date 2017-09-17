@@ -14,11 +14,13 @@ public class Athlete extends Competitor{
                    int bronzeMedalCount,
                    Enum<Country> country,
                    String name,
-                   int skill) {
+                   int skill,
+                   Enum<Discipline> discipline) {
         super(goldMedalCount,
                 silverMedalCount,
                 bronzeMedalCount,
-                country);
+                country,
+                discipline);
 
         this.name = name;
         this.skill = skill;

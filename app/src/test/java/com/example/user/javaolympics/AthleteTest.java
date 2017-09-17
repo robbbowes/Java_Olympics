@@ -15,7 +15,7 @@ public class AthleteTest {
     Athlete athlete;
     @Before
     public void before() {
-        athlete = new Athlete(0, 0, 0, Country.BRITAIN, "John Smith", 8);
+        athlete = new Athlete(0, 0, 0, Country.BRITAIN, "John Smith", 8, Discipline.JAVELIN);
     }
 
     @Test
@@ -46,5 +46,42 @@ public class AthleteTest {
     @Test
     public void hasSkillLevel() {
         assertEquals(8, athlete.getSkill());
+    }
+
+    @Test
+    public void hasDiscipline() {
+        assertEquals( Discipline.JAVELIN, athlete.getDiscipline());
+    }
+
+    @Test
+    public void awardBronze() {
+        athlete.awardBronze();
+        assertEquals( 1, athlete.bronzeMedalCount);
+    }
+
+    @Test
+    public void awardSilver() {
+        athlete.awardSilver();
+        assertEquals(1, athlete.silverMedalCount);
+    }
+
+    @Test
+    public void awardGold() {
+        athlete.awardGold();
+        assertEquals(1, athlete.goldMedalCount);
+    }
+
+    @Test
+    public void award2Bronzes1SilverAnd3Golds() {
+        athlete.awardBronze();
+        athlete.awardBronze();
+        athlete.awardSilver();
+        athlete.awardGold();
+        athlete.awardGold();
+        athlete.awardGold();
+        assertEquals(6, athlete.howManyMedals());
+        assertEquals(2, athlete.bronzeMedalCount);
+        assertEquals(1, athlete.silverMedalCount);
+        assertEquals(3, athlete.goldMedalCount);
     }
 }

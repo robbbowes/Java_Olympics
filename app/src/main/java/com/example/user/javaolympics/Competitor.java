@@ -9,12 +9,18 @@ public abstract class Competitor {
     int silverMedalCount;
     int bronzeMedalCount;
     Enum<Country> country;
+    Enum<Discipline> discipline;
 
-    public Competitor(int goldMedalCount, int silverMedalCount, int bronzeMedalCount, Enum<Country> country) {
+    public Competitor(int goldMedalCount,
+                      int silverMedalCount,
+                      int bronzeMedalCount,
+                      Enum<Country> country,
+                      Enum<Discipline> discipline) {
         this.goldMedalCount = goldMedalCount;
         this.silverMedalCount = silverMedalCount;
         this.bronzeMedalCount = bronzeMedalCount;
         this.country = country;
+        this.discipline = discipline;
     }
 
     public Enum<Country> getCountry() {
@@ -33,4 +39,23 @@ public abstract class Competitor {
         return bronzeMedalCount;
     }
 
+    public Enum<Discipline> getDiscipline() {
+        return discipline;
+    }
+
+    public void awardBronze() {
+        this.bronzeMedalCount++;
+    }
+
+    public void awardSilver() {
+        this.silverMedalCount++;
+    }
+
+    public void awardGold() {
+        this.goldMedalCount++;
+    }
+
+    public int howManyMedals() {
+        return bronzeMedalCount + silverMedalCount + goldMedalCount;
+    }
 }
