@@ -35,4 +35,12 @@ public class Team extends Competitor {
         return team.size();
     }
 
+    public double getSkill() {
+        int overallSkill = 0;
+        for ( Athlete athlete : team){
+            overallSkill += athlete.getSkill();
+        }
+        return (overallSkill/teamSize());
+    }
+
 }

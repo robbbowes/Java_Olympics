@@ -30,8 +30,10 @@ public class Athlete extends Competitor{
         return name;
     }
 
-    public int getSkill() {
+    public double getSkill() {
         return skill;
     }
+
+
 
 }

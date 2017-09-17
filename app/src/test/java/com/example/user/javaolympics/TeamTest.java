@@ -66,6 +66,20 @@ public class TeamTest {
         assertEquals(3, team.getTeam().size());
     }
 
+    @Test
+    public void getOverallSkillLevel() {
+        Athlete johnsmith = new Athlete(0, 0, 0, Country.BRITAIN, "John Smith", 8, Discipline.JAVELIN);
+        Athlete stevenberry = new Athlete(0, 0, 0, Country.BRITAIN, "Steven Berry", 7, Discipline.JAVELIN);
+        Athlete andrewmcguinness = new Athlete(0, 0, 0, Country.BRITAIN, "Andrew McGuinness", 9, Discipline.JAVELIN);
+        ArrayList<Athlete> teamgb = new ArrayList<>();
+        teamgb.add(johnsmith);
+        teamgb.add(stevenberry);
+        teamgb.add(andrewmcguinness);
+        Team team = new Team(3, 4, 1, Country.BRITAIN, teamgb, Discipline.JAVELIN );
+        assertEquals(8, team.getSkill(), -0.1);
+    }
+
+
 
 
 }

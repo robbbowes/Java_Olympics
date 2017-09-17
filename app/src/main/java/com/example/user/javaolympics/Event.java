@@ -9,12 +9,12 @@ import java.util.ArrayList;
 public class Event {
 
     Enum<Discipline> eventDiscipline;
-    ArrayList<Team> competingTeams;
+    ArrayList<Competitor> competitors;
     int maxTeamSize;
 
-    public Event(Enum<Discipline> eventDiscipline, ArrayList<Team> competingTeams, int maxTeamSize) {
+    public Event(Enum<Discipline> eventDiscipline, ArrayList<Competitor> competingTeams, int maxTeamSize) {
         this.eventDiscipline = eventDiscipline;
-        this.competingTeams = competingTeams;
+        this.competitors = competingTeams;
         this.maxTeamSize = maxTeamSize;
     }
 
@@ -22,24 +22,33 @@ public class Event {
         return eventDiscipline;
     }
 
-    public ArrayList<Team> getCompetingTeams() {
-        return competingTeams;
+    public ArrayList<Competitor> getCompetingTeams() {
+        return competitors;
     }
 
-    public void addToCompetingTeams(Team team) {
+    public void addTeamToCompetitors(Team team) {
         if ( (team.getDiscipline() == this.getEventDiscipline() ) && (team.teamSize() < this.maxTeamSize) ) {
-            competingTeams.add(team);
+            competitors.add(team);
         }
     }
 
-//    public Team winningTeam() {
-//
-//    }
+    public void addAthleteToCompetitors(Athlete athlete) {
+        if ( athlete.getDiscipline() == this.getEventDiscipline()) {
+            competitors.add(athlete);
+        }
+    }
 
-//    public String getWinner() {
-//        Team winner = competingTeams.get(0);
-//        for (Team team : competingTeams){
-//
-//        }
-//    }
+    public Competitor winner() {
+        Competitor winner = competitors.get(0);
+        for ( Competitor competitor : competitors ){
+            double challengerSkill = competitor.getSkill();
+            double winnersSkill = winner.getSkill();
+            if (challengerSkill > winnersSkill){
+                winner = competitor;
+            }
+        }
+        winner.awardGold();
+        return winner;
+    }
+
 }

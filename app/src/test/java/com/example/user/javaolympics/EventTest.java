@@ -35,13 +35,13 @@ public class EventTest {
         teamgb.add(johnsmith);
         teamgb.add(stevenberry);
         Team team = new Team(3, 4, 1, Country.BRITAIN, teamgb, Discipline.JAVELIN );
-        ArrayList<Team> javelinteams = new ArrayList<>();
+        ArrayList<Competitor> javelinteams = new ArrayList<>();
         javelinteams.add(team);
         Event javelinevent = new Event(Discipline.JAVELIN, javelinteams, 2);
-        assertEquals(1, javelinevent.competingTeams.size());
+        assertEquals(1, javelinevent.competitors.size());
     }
 
-    @Test
+//    @Test
 
 
 

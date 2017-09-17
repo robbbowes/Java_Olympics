@@ -58,4 +58,6 @@ public abstract class Competitor {
     public int howManyMedals() {
         return bronzeMedalCount + silverMedalCount + goldMedalCount;
     }
+
+    public abstract double getSkill();
 }
